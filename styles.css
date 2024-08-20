@@ -1,0 +1,346 @@
+/* Globální styl */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    margin-left: -150px; /* Posunout celé header doleva */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto; /* Vycentrovat obsah kontejneru */
+    padding-left: 20px; /* Přidat vnitřní mezery pro přizpůsobení posunu */
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #1A0C04;
+    padding: 10px 25px;
+    margin: auto;
+    background-color: #c6714f;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#slider {
+    position: relative;
+    height: 60vh; /* 60% výšky viewportu */
+    overflow: hidden;
+    margin: 0; /* Odstranění mezer okolo slideru */
+    padding: 0; /* Odstranění vnitřních mezer */
+    border-top: none; /* Odstranění šedého proužku nahoře */
+    border-bottom: none; /* Odstranění šedého proužku dole */
+}
+
+.slider-container {
+    display: flex;
+    width: 500%; /* Šířka slideru pro 5 obrázků */
+    height: 100%;
+    transition: transform 1.8s cubic-bezier(0.35, 0.1, 0.35, 1); /* Plynulý přechod */
+}
+
+.slider-item {
+    flex: 0 0 20%; /* Každý obrázek zabírá 20% šířky slideru (5 obrázků) */
+    position: relative;
+    height: 100%;
+    overflow: hidden; /* Skrytí části obrázku, která je mimo slider */
+}
+
+.slider-item img {
+    width: 100%; /* Přizpůsobení šířce slideru */
+    height: 100%; /* Přizpůsobení výšce slideru */
+    object-fit: cover; /* Ořízne obrázek shora a zespoda */
+    display: block;
+}
+
+/* Styl pro popis obrázků */
+.slider-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 25%; /* Maximální šířka popisu na čtvrtinu šířky obrázku */
+    background-color: rgba(255, 255, 255, 0.8); /* Poloprůhledné pozadí pro lepší čitelnost */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    max-height: none; /* Povolí nekonečný růst nahoru podle obsahu */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Umožňuje vertikální růst textu */
+}
+
+/* Styl pro text v popisu */
+.slider-text p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/* Styl pro tlačítko v popisu */
+.slider-text a.btn {
+    display: inline-block;
+    background-color: #333333; /* Tmavá barva pozadí tlačítka */
+    color: #fff; /* Barva textu */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Plynulá změna barev */
+}
+
+.slider-text a.btn:hover {
+    background-color: #c6714f;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.slider-dot {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    background-color: #ff6600;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Doplňkové styly pro další sekce */
+section {
+    padding: 20px;
+}
+
+/* Styl pro kartu */
+.portfolio-item {
+    display: flex;
+    align-items: flex-start; /* Ujistí se, že obsah je zarovnán nahoře */
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 35vh; /* Nastavení výšky kartičky */
+    transition: height 0.3s ease; /* Plynulá změna výšky */
+}
+
+/* Styl pro obsah kartičky */
+.portfolio-content {
+    display: flex;
+    align-items: flex-start; /* Ujistí se, že obsah je zarovnán nahoře */
+    width: 100%;
+    height: 100%; /* Zajišťuje, že obsah kartičky pokrývá celou její výšku */
+}
+
+/* Styl pro obrázek v kartičce */
+.portfolio-image {
+    width: auto; /* Šířka obrázku přizpůsobena jeho obsahu */
+    height: 100%; /* Výška obrázku nastavena na výšku kartičky */
+    flex-shrink: 0; /* Zabrání zmenšení obrázku */
+}
+
+.portfolio-image img {
+    width: 100%; /* Obrázek zabírá celou šířku svého kontejneru */
+    height: 40; /* Výška obrázku přizpůsobena výšce kartičky */
+    object-fit: cover; /* Zajišťuje, že obrázek nebude deformován */
+}
+
+/* Styl pro text v kartičce */
+.portfolio-text {
+    padding: 10px 20px; /* Menší vnitřní mezery pro menší volné místo */
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ujistí se, že text začíná od vrchu */
+    position: relative;
+    overflow: hidden;
+    height: 100%; /* Výška textového bloku nastavena na výšku kartičky */
+    transition: max-height 0.3s ease; /* Plynulá změna maximální výšky textu */
+}
+
+/* Styl pro nadpisy */
+.portfolio-text h3 {
+    margin: 0; /* Odstraní mezery kolem nadpisu */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+}
+
+/* Styl pro texty */
+.portfolio-text p {
+    font-size: 1em;
+    color: #666;
+    margin: 5px 0; /* Menší mezery kolem textu */
+}
+
+/* Styl pro tlačítko "Číst dál" */
+.read-more-btn {
+    position: absolute;
+    left: 50%; /* Horizontální zarovnání uprostřed */
+    bottom: 3.5vh; /* 3.5vh od spodního okraje kartičky */
+    transform: translateX(-50%); /* Středové zarovnání */
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* Styl při najetí myší */
+.read-more-btn:hover {
+    background-color: #c6714f; /* Oranžové pozadí při najetí myší */
+}
+
+/* Zprůhlednění dolní části textu */
+.portfolio-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 240px; /* Zvětšená výška přechodového efektu */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none; /* Umožňuje kliknutí na tlačítko */
+}
+
+/* Styl pro rozbalenou kartičku */
+.portfolio-item.expanded {
+    height: 80vh; /* Výška kartičky po rozbalení */
+    transition: height 0.3s ease; /* Plynulá změna výšky */
+}
+
+/* Styl pro obrázek v rozbalené kartičce */
+.portfolio-image img {
+    height: 100%; /* Výška obrázku */
+    width: 100%; /* Šířka obrázku */
+    object-fit: cover; /* Přizpůsobení obrázku */
+    transition: all 0.3s ease; /* Plynulé změny efektů */
+    float: left
+}
+
+/* Styl pro text v rozbalené kartičce */
+.portfolio-item.expanded .portfolio-text {
+    max-height: 100%; /* Zrušení maximální výšky textu */
+   
+    transition: max-height 0.3s ease; /* Plynulá změna výšky textu */
+}
+
+/* Zprůhlednění dolní části textu */
+.portfolio-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 240px; /* Zvětšená výška přechodového efektu */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none; /* Umožňuje kliknutí na tlačítko */
+}
+.portfolio-text a {
+    color: #ff6600; /* Oranžová barva textu */
+    text-decoration: none; /* Bez podtržení */
+    transition: all 0.3s ease; /* Plynulá změna efektů */
+}
+
+/* Styl při najetí myší */
+.portfolio-text a:hover {
+    background-color: #ff6600; /* Oranžové pozadí */
+    color: #fff; /* Bílý text */
+    padding: 5px 10px; /* Vnitřní mezery */
+    border-radius: 50px; /* Zaoblení rohu */
+    text-decoration: none; /* Bez podtržení */
+}
+
+.portfolio-item.expanded .portfolio-image img {
+    height: 50vh; /* Zvýšení výšky obrázku o 10vh */
+    width: auto; /* Šířka se přizpůsobí automaticky */
+    object-fit: cover; /* Zachování proporcí obrázku */
+}
+
+/* Skrytí dodatečných obrázků ve výchozím stavu */
+.book-item .additional-images {
+    display: none;
+}
+
+/* Zobrazení dodatečných obrázků v otevřeném režimu */
+.book-item.expanded .additional-images {
+    display: block;
+    margin-top: 10px; /* Mezery nad obrázky */
+}
+
+.book-item.expanded .additional-images img {
+    width: 100%; /* Šířka obrázku přizpůsobena kontejneru */
+    height: auto; /* Výška automatická pro zachování poměru stran */
+    margin-bottom: 10px; /* Mezery mezi obrázky */
+}
+/* Styl pro dodatečné obrázky v kartičce */
+.portfolio-extra-images {
+    margin-top: 15px; /* Mezera nad dodatečnými obrázky */
+    display: flex;
+    flex-direction: column; /* Zobrazí obrázky pod sebou ve sloupci */
+    gap: 10px; /* Mezera mezi obrázky */
+}
+
+.portfolio-extra-images img {
+    width: 100%; /* Šířka obrázků nastavena na 100% šířky jejich kontejneru */
+    height: auto; /* Výška obrázků se přizpůsobí jejich poměru stran */
+    object-fit: cover; /* Ořízne obrázek, aby se přizpůsobil kontejneru */
+    border-radius: 10px; /* Zaoblení rohů obrázků */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Měkký stín kolem obrázků */
+}
+h2 {
+    text-align: center;
+}
